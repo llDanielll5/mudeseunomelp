@@ -1,9 +1,8 @@
-//@ts-nocheck
-import { Box, Grid, Typography, Button, alpha } from "@mui/material";
+import { Box, Typography, Grid, Paper } from "@mui/material";
 import { useEffect, useState } from "react";
 
-const CountdownHeader = () => {
-  const [timeLeft, setTimeLeft] = useState<number>(1150); // 1 hora em segundos
+const CountdownTimer = () => {
+  const [timeLeft, setTimeLeft] = useState<number>(36 * 53 * 51);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -19,57 +18,66 @@ const CountdownHeader = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const formatTime = (seconds: number) => {
-    const minutes = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${String(minutes).padStart(2, "0")}:${String(secs).padStart(
-      2,
-      "0"
-    )}`;
+  const formatUnits = () => {
+    const dias = Math.floor(timeLeft / (60 * 60 * 24));
+    const horas = Math.floor((timeLeft % (60 * 60 * 24)) / 3600);
+    const minutos = Math.floor((timeLeft % 3600) / 60);
+    const segundos = timeLeft % 60;
+
+    return [
+      { label: "Dias", value: dias },
+      { label: "Horas", value: horas },
+      { label: "Minutos", value: minutos },
+      { label: "Segundos", value: segundos },
+    ];
   };
 
-  return (
-    <Grid
-      container
-      justifyContent="center"
-      alignItems={"center"}
-      spacing={2}
-      sx={{ bgcolor: "primary.main", p: 3, color: "white" }}
-    >
-      <Grid item xs={12} md={6}>
-        <Typography
-          variant="headingXl"
-          sx={{ textTransform: "uppercase", textAlign: "center" }}
-        >
-          Oferta Especial por tempo limitado!
-        </Typography>
-      </Grid>
-      <Grid item xs={12} md={6}>
-        <Typography
-          variant="headingMd"
-          color={"primary.main"}
-          sx={{ bgcolor: "white", p: 1, borderRadius: "5px" }}
-        >
-          Tempo Restante: {formatTime(timeLeft)}
-        </Typography>
-      </Grid>
+  const unidades = formatUnits();
 
-      <Grid item xs={12}>
-        <Button
-          variant="contained"
-          color="inherit"
-          size="large"
-          sx={{
-            color: "primary.main",
-            bgcolor: "white",
-            ":hover": { bgcolor: alpha("#FFF", 0.9) },
-          }}
-        >
-          COMPRAR AGORA
-        </Button>
+  return (
+    <Box
+      sx={{
+        background: "linear-gradient(to right, #fe5f2f, #fe5f2f)",
+        py: 4,
+        px: 2,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        textAlign: "center",
+      }}
+    >
+      <Typography variant="headingXl" fontWeight="bold" mb={3} color="white">
+        Essa oferta irá encerrar em:
+      </Typography>
+
+      <Grid container spacing={1} justifyContent="center">
+        {unidades.map((item, index) => (
+          <Grid key={index}>
+            <Paper
+              elevation={3}
+              sx={{
+                width: { md: 100, xs: 70 },
+                height: { md: 105, xs: 75 },
+                borderRadius: 1.5,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundColor: "#fff",
+              }}
+            >
+              <Typography variant="headingLg" fontWeight="bold" color="#000">
+                {String(item.value).padStart(2, "0")}
+              </Typography>
+              <Typography variant={"bodyXs"} color="black">
+                {item.label}
+              </Typography>
+            </Paper>
+          </Grid>
+        ))}
       </Grid>
-    </Grid>
+    </Box>
   );
 };
 
-export default CountdownHeader;
+export default CountdownTimer;

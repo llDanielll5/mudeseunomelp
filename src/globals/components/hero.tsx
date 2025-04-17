@@ -1,106 +1,148 @@
-// components/Hero.tsx
-import { Box, Button, Stack, styled, Typography } from "@mui/material";
-import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
+import {
+  Box,
+  Button,
+  Container,
+  Grid,
+  styled,
+  Typography,
+} from "@mui/material";
+import { BOOK_VALUE } from "../utils/constants";
 
-interface HeroProps {}
-
-const Hero: React.FC<HeroProps> = () => {
+export default function Header() {
   return (
     <Box
       sx={{
+        position: "relative",
+        py: "2rem",
+        backgroundImage: `
+  radial-gradient(circle at right, rgba(254, 95, 47, 0.2) 0%, rgba(139, 56, 31, 0.90) 40%),
+  url("/images/sign.jpg")
+`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
         display: "flex",
-        flexDirection: { xs: "column", md: "row" },
         alignItems: "center",
-        justifyContent: "center",
-        width: "100%",
-        bgcolor: "#fff3c3",
-        padding: { xs: ".6rem", md: "2rem" },
-        columnGap: { xs: ".6rem", md: "2rem" },
+        color: "#fff",
       }}
     >
-      {/* Seção de Texto */}
-      <Box
-        sx={{
-          width: { xs: "100%", md: "40%" },
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
-        <Typography
-          variant="headingLg"
-          color="white"
-          gutterBottom
-          textAlign={"center"}
-          sx={{ bgcolor: "primary.main", borderRadius: "5px" }}
-        >
-          EBOOK
-        </Typography>
-        <Stack p={2}>
-          <Typography
-            variant="headingLg"
-            component="h1"
-            fontWeight="bold"
-            gutterBottom
-          >
-            7 Passos para a mudança de nome
-          </Typography>
-          <Typography variant="headingMd" color="text.secondary" gutterBottom>
-            Aprenda a mudar você mesmo o seu <strong>NOME</strong>
-          </Typography>
-          <Typography variant="bodyLg" color="text.secondary" marginBottom={3}>
-            Ao ler este e-book você vai aprender, de forma clara e prática, como
-            alterar o seu Registro Civil em qualquer Município do Brasil, sem
-            precisar de processo judicial ou auxílio jurídico.
-          </Typography>
-        </Stack>
-        <Button
-          variant="contained"
-          color="primary"
-          size="large"
-          startIcon={<WorkspacePremiumIcon />}
-        >
-          QUERO TER ACESSO AO EBOOK
-        </Button>
-        <Stack
-          direction="row"
-          spacing={1}
-          mt={2}
-          justifyContent={{ xs: "center", md: "flex-start" }}
-        >
-          {/* Adicione aqui os ícones de formas de pagamento */}
-          {/* Exemplo: */}
-          {/* <Image src="/visa.png" alt="Visa" width={40} height={25} /> */}
-          {/* <Image src="/mastercard.png" alt="Mastercard" width={40} height={25} /> */}
-          {/* ... outros ícones */}
-        </Stack>
-      </Box>
+      <Container maxWidth="lg">
+        <Grid container spacing={6} alignItems="center">
+          {/* LADO ESQUERDO */}
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Typography
+              component="h1"
+              sx={{
+                fontSize: { xs: "2.5rem", md: "3rem" },
+                fontWeight: 800,
+                lineHeight: 1.2,
+                mb: 2,
+              }}
+            >
+              <BorderedText
+                sx={{
+                  color: "#ffa830",
+                  fontSize: { xs: "3rem", md: "5rem" },
+                }}
+              >
+                Domine
+              </BorderedText>{" "}
+              A MANEIRA DE MUDAR de nome <br />
+              <BorderedText
+                sx={{
+                  color: "#ffa830",
+                  fontSize: { xs: "3rem", md: "5rem" },
+                }}
+              >
+                no BRASIL
+              </BorderedText>{" "}
+            </Typography>
 
-      {/* Seção de Imagens */}
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          width: { xs: "100%", md: "40%" },
-        }}
-      >
-        <img src="/images/hero.png" style={{ width: "100%" }} />
-      </Box>
+            <Typography variant="bodyXl" sx={{ mb: 2 }}>
+              Você sabia que mudar de nome no Brasil é um direito garantido por
+              lei e que qualquer pessoa pode fazer isso sozinha,{" "}
+              <b>sem depender de advogados ou gastar rios de dinheiro?</b>{" "}
+              <br /> <br />
+            </Typography>
+
+            <Typography variant="headingMd" fontWeight={700} sx={{ mb: 2 }}>
+              Neste eBook 100% prático, você vai aprender o passo a passo
+              completo para mudar seu nome de forma legal, segura e rápida,
+              direto no cartório ou por via judicial.
+            </Typography>
+
+            <br />
+            <br />
+
+            <Typography variant="bodySm" sx={{ mb: 4 }}>
+              Se você não se reconhece mais no nome que tem, se deseja corrigir
+              algo que te incomoda há anos ou até mesmo está em processo de
+              afirmação de gênero, religião ou identidade pessoal, esse guia é
+              para você.
+            </Typography>
+
+            <Box
+              sx={{
+                backgroundColor: "rgba(0, 0, 0, 0.5)",
+                borderRadius: 2,
+                p: 2,
+                mt: 4,
+                display: "inline-block",
+              }}
+            >
+              <Typography variant="bodyLg" sx={{ color: "white" }}>
+                OFERTA ESPECIAL POR <strong>TEMPO LIMITADO!</strong>
+              </Typography>
+
+              <Button
+                variant="contained"
+                color="secondary"
+                href="https://pay.hotmart.com/C97218807O"
+                sx={{
+                  color: "white",
+                  fontWeight: "bold",
+                  my: 1,
+                  transition: ".3s",
+                  "&:hover": {
+                    backgroundColor: "secondary.main",
+                    opacity: 0.8,
+                  },
+                }}
+              >
+                QUERO MEU EXEMPLAR AGORA
+              </Button>
+
+              <Typography variant="headingMd" sx={{ display: "block" }}>
+                Apenas{" "}
+                <strong>
+                  {new Intl.NumberFormat("pt-BR", {
+                    style: "currency",
+                    currency: "BRL",
+                  }).format(BOOK_VALUE)}
+                </strong>
+              </Typography>
+              <Typography variant="bodyXs" color="gray">
+                Aviso: O preço pode ser reajustado a qualquer momento.
+              </Typography>
+            </Box>
+          </Grid>
+
+          {/* LADO DIREITO - IMAGEM DO EBOOK */}
+          <Grid size={{ xs: 12, md: 6 }} sx={{ textAlign: "center" }}>
+            <Box
+              component="img"
+              src="/images/ebook.png" // Altere conforme o caminho da sua imagem
+              alt="E-book 20 Maneiras"
+              sx={{ width: "100%" }}
+            />
+          </Grid>
+        </Grid>
+      </Container>
     </Box>
   );
-};
+}
 
-const Container = styled(Box)`
-  background-image: url(/images/hero.png);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  display: flex;
-  flex-direction: column;
-  min-height: 700px;
-  align-items: left;
-  justify-content: center;
-  padding: 1rem;
+const BorderedText = styled(Box)`
+  font-weight: 800;
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
+    1px 1px 0 #fff;
 `;
-
-export default Hero;

@@ -1,20 +1,24 @@
 //@ts-nocheck
-import { Box, Container, Grid, Typography } from "@mui/material";
+import {
+  Box,
+  Container,
+  Divider,
+  Grid,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Image from "next/image";
-
-const SobreSection = styled("section")(({ theme }) => ({
-  backgroundColor: "#fff3c3",
-  padding: theme.spacing(8, 2),
-  position: "relative",
-  overflow: "hidden",
-}));
+import Price from "./price";
+import GarantiaSection from "./guarantee";
+import StepByStep from "./stepByStep";
 
 const Title = styled(Typography)(({ theme }) => ({
   fontSize: "1.875rem",
   fontWeight: 700,
   color: theme.palette.primary.main,
   marginBottom: theme.spacing(2),
+  zIndex: 1,
 }));
 
 const LogoText = styled("div")(({ theme }) => ({
@@ -28,8 +32,9 @@ const LogoText = styled("div")(({ theme }) => ({
 }));
 
 const PatternBackground = styled("div")(() => ({
-  backgroundImage: "url(/pattern.png)", // você pode exportar o padrão da imagem original ou recriá-lo em SVG
-  opacity: 0.1,
+  backgroundImage: "url(/images/background-about.jpg)", // você pode exportar o padrão da imagem original ou recriá-lo em SVG
+  backgroundSize: "cover",
+  opacity: 0.3,
   position: "absolute",
   top: 0,
   left: 0,
@@ -48,47 +53,88 @@ const SobreTexto = styled(Typography)(({ theme }) => ({
 
 export default function Sobre() {
   return (
-    <SobreSection>
+    <Box sx={{ bgcolor: "white", position: "relative", maxWidth: "100%" }}>
       <PatternBackground />
-      <Container>
-        <Grid container spacing={4} alignItems="center">
-          <Grid item xs={12} md={6}>
-            <Title>Sobre o Autor - Grupo MMS</Title>
-            <LogoText>
-              <span>E-BOOK</span>
-              <span style={{ fontFamily: "sans-serif" }}>🞂</span>
-              <span>MMS</span>
-            </LogoText>
-            <SobreTexto>
-              O grupo MMS tem a responsabilidade e a finalidade de oferecer
-              serviços educacionais e jurídicos com vistas à difusão de
-              conhecimento para a capacitação da população brasileira na busca
-              por seus direitos. <br />
-              <br />
-              Esta obra foi elaborada por profissionais capacitados na temática,
-              estando devidamente atualizada com a legislação nacional.
-            </SobreTexto>
-          </Grid>
-          <Grid item xs={12} md={6} sx={{ position: "relative", zIndex: 1 }}>
-            <Box
-              sx={{
-                position: "relative",
-                width: "100%",
-                maxWidth: 400,
-                mx: "auto",
-              }}
-            >
-              <Image
-                src="/matheus.png" // imagem do Matheus recortado com diamante
-                alt="LOGO GRUPO MMS"
-                width={400}
-                height={500}
-                style={{ borderRadius: 12 }}
-              />
-            </Box>
-          </Grid>
+
+      <Grid container spacing={4} alignItems="center" p={5}>
+        <Grid size={{ xs: 12, md: 6 }} sx={{ position: "relative", zIndex: 1 }}>
+          <Box
+            sx={{
+              position: "relative",
+              width: "100%",
+              maxWidth: "100%",
+              mx: "auto",
+            }}
+          >
+            <img
+              src="/images/hammer.png" // imagem do Matheus recortado com diamante
+              alt="LOGO GRUPO MMS"
+              style={{ borderRadius: 12, width: "100%" }}
+            />
+          </Box>
         </Grid>
-      </Container>
-    </SobreSection>
+
+        <Grid size={{ xs: 12, md: 5 }} sx={{ position: "relative", zIndex: 1 }}>
+          <Title>Sobre o Autor</Title>
+
+          <SobreTexto>
+            <b>O Grupo MMS</b> <br />
+            Comprometido com a capacitação da população brasileira e a promoção
+            do acesso à justiça, o Grupo MMS oferece serviços educacionais e
+            jurídicos de alta qualidade. <br /> <br /> Esta obra, elaborada por
+            profissionais com expertise na temática e rigorosamente atualizada
+            com a legislação nacional, visa difundir conhecimento essencial para
+            a efetiva busca por direitos.
+          </SobreTexto>
+        </Grid>
+      </Grid>
+
+      <Stack
+        zIndex={1}
+        width={{ md: "100%", xs: "100%" }}
+        zIndex={1}
+        position={"relative"}
+        direction={"column"}
+        alignItems={"center"}
+      >
+        <Stack
+          direction={"column"}
+          width={{ md: "50%", xs: "100%" }}
+          bgcolor={"primary.main"}
+          borderRadius={2}
+          p={2}
+        >
+          <Typography variant="headingXl" color="white" textAlign={"center"}>
+            Siga os passos abaixo para:
+          </Typography>
+
+          {[
+            "Mudar o seu primeiro nome",
+            "Acrescentar um nome composto",
+            "Acrescentar um sobrenome familiar",
+          ].map((item, index) => (
+            <Typography
+              variant="bodyXl"
+              color="white"
+              textAlign={"center"}
+              key={index}
+            >
+              {item}
+            </Typography>
+          ))}
+        </Stack>
+      </Stack>
+      <StepByStep />
+      <Divider
+        sx={{
+          bgcolor: "primary.main",
+          height: "10px",
+          zIndex: 10,
+          position: "relative",
+        }}
+      />
+      <Price />
+      <GarantiaSection />
+    </Box>
   );
 }

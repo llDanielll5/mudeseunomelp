@@ -17,13 +17,13 @@ declare module "@mui/material/styles" {
 export function createPalette() {
   return {
     primary: {
-      main: "#8f2821",
+      main: "#8b381f",
       light: "#cf3a30",
       dark: "#80241e",
       contrastText: COLORS.BW[100], // Texto claro
     },
     secondary: {
-      main: COLORS.GOLD[500], // Dourado principal
+      main: "#fe5f2f", // Dourado principal
       light: COLORS.GOLD[400], // Dourado claro
       dark: COLORS.GOLD[600], // Dourado escuro
       contrastText: COLORS.BW[100], // Texto claro

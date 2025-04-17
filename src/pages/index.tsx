@@ -5,17 +5,13 @@ import Guarantee from "../globals/components/guarantee";
 import FAQ from "../globals/components/faq";
 import { Box } from "@mui/material";
 import CountdownHeader from "../globals/components/countDownHeader";
-import Price from "../globals/components/price";
-import EbookAudience from "../globals/components/ebookAudience";
 
 const Home = () => {
   return (
     <Box width={"100%"}>
-      <CountdownHeader />
       <Hero />
+      <CountdownHeader />
       <About />
-      <Price />
-      <Guarantee />
       <FAQ />
       <Footer />
     </Box>

@@ -47,13 +47,6 @@ export default function Footer() {
           }}
         />
 
-        <LogoText>
-          {/* Substitua por um <Image> se você quiser usar uma logo SVG ou imagem */}
-          <span>E-BOOK</span>
-          <span style={{ fontFamily: "sans-serif" }}>🞂</span>
-          <span>MMS</span>
-        </LogoText>
-
         <Typography variant="bodyXs" color="white">
           © Copyright 2024. Todos os direitos reservados
         </Typography>

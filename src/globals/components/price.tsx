@@ -20,71 +20,8 @@ const Container = styled(Box)({
   justifyContent: "flex-start",
   alignItems: "center",
   width: "100%",
-  backgroundColor: "#fff3c3",
-  backgroundImage: "url(/bg-pattern.png)", // você pode repetir esse padrão se quiser
-  backgroundSize: "cover",
+  backgroundColor: "transparent",
 });
-
-const HeaderImage = styled("div")({
-  marginBottom: 16,
-  display: "flex",
-  justifyContent: "center",
-});
-
-const Title = styled(Typography)({
-  fontWeight: 700,
-  fontSize: 20,
-  lineHeight: 1.4,
-  marginBottom: 8,
-});
-
-const Subtitle = styled(Typography)({
-  fontSize: 14,
-  color: "#555",
-  marginBottom: 16,
-});
-
-const OldPrice = styled(Typography)({
-  textDecoration: "line-through",
-  fontSize: 14,
-  color: "#999",
-  marginBottom: 4,
-});
-
-const PriceRow = styled(Box)({
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "flex-end",
-  marginBottom: 8,
-});
-
-const BigPrice = styled(Typography)({
-  fontWeight: 800,
-  fontSize: 32,
-  color: "#3e1c0b",
-  lineHeight: 1,
-  marginLeft: 4,
-});
-
-const SmallText = styled(Typography)({
-  fontSize: 12,
-  color: "#333",
-  marginBottom: 16,
-});
-
-const ActionButton = styled(Button)(({ theme }) => ({
-  backgroundColor: theme.palette.primary.main,
-  color: "#fff",
-  fontWeight: 700,
-  fontSize: 14,
-  padding: "12px 16px",
-  borderRadius: 8,
-  textTransform: "none",
-  marginBottom: 16,
-  "&:hover": {
-    backgroundColor: alpha(theme.palette.primary.main, 0.9),
-  },
-}));
 
 const PaymentIcons = styled(Box)({
   display: "flex",
@@ -97,7 +34,14 @@ const PaymentIcons = styled(Box)({
 export default function Price() {
   return (
     <Container
-      sx={{ flexDirection: { xs: "column", md: "row" }, py: { xs: 0, md: 10 } }}
+      sx={{
+        flexDirection: { xs: "column", md: "row" },
+        bgColor: "transparent",
+        py: { xs: 0, md: 10 },
+        position: "relative",
+        zIndex: 1,
+        pb: { xs: 2 },
+      }}
     >
       <Box
         sx={{
@@ -112,17 +56,17 @@ export default function Price() {
         }}
       >
         <Stack>
-          <Typography variant="headingMd" fontWeight="bold">
-            Tudo o que você terá acesso:
+          <Typography variant="headingMd" fontWeight="bold" mb={1}>
+            Benefícios que nosso e-book lhe traz:
           </Typography>
 
           {[
-            "Lorem Ipsum Dolor Sit",
-            "Lorem Ipsum Dolor Sit",
-            "Lorem Ipsum Dolor Sit",
-            "Lorem Ipsum Dolor Sit",
-            `Lorem Ipsum Dolor Sit`,
-            "Lorem Ipsum Dolor Sit",
+            "Tenha finalmente um nome que te represente de verdade",
+            "Não espere por ninguém e nem dependa de Advogado.",
+            "Remova traumas que seu nome lhe trouxe no passado.",
+            "Economize muito por ter o conhecimento certo para o que precisa",
+            "Exercite um direito legal seu Constitucional",
+            "E muito mais...",
           ].map((item, index) => (
             <Box key={index} display="flex" alignItems={"center"} my={1.5}>
               <CheckCircleIcon sx={{ color: "success.light", mr: 1 }} />
@@ -145,7 +89,7 @@ export default function Price() {
         }}
       >
         <Image
-          src="/images/hero.png"
+          src="/images/ebook.png"
           alt="Mockup do ebook"
           width={300}
           height={100}
@@ -180,6 +124,7 @@ export default function Price() {
 
         <Button
           variant="contained"
+          href="https://pay.hotmart.com/C97218807O"
           sx={{
             mt: 3,
             backgroundColor: "primary.main",

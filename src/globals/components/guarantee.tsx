@@ -2,15 +2,13 @@
 
 import { Box, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import Image from "next/image";
+import { Garantia7Icon } from "../icons";
 
 const Section = styled("section")(({ theme }) => ({
   width: "100%",
-  backgroundColor: theme.palette.background.default,
-  padding: theme.spacing(10, 2),
+  alignSelf: "center",
   display: "flex",
   justifyContent: "center",
-  background: theme.palette.primary.main,
 }));
 
 const Container = styled(Box)(({ theme }) => ({
@@ -20,10 +18,19 @@ const Container = styled(Box)(({ theme }) => ({
   justifyContent: "space-between",
   alignItems: "center",
   gap: theme.spacing(4),
+  background: theme.palette.primary.main,
+  zIndex: 1,
+  padding: "2.5rem",
+  borderRadius: 10,
+  marginBottom: "2rem",
 
   [theme.breakpoints.up("md")]: {
     flexDirection: "row",
     alignItems: "center",
+  },
+  "@media screen and (max-width: 760px)": {
+    width: "100%",
+    gap: 0,
   },
 }));
 
@@ -40,13 +47,8 @@ export default function GarantiaSection() {
   return (
     <Section>
       <Container>
-        <Box position="relative" width={180} height={180}>
-          <Image
-            src="/images/garantia.png"
-            alt="Selo de Garantia"
-            fill
-            style={{ objectFit: "contain" }}
-          />
+        <Box position="relative">
+          <Garantia7Icon sx={{ fontSize: 200 }} />
         </Box>
         <TextWrapper>
           <Typography
@@ -66,7 +68,7 @@ export default function GarantiaSection() {
             textAlign={"center"}
             sx={{ color: "white" }}
           >
-            Seu dinheiro de volta <strong>sem perguntas</strong> até <br />7
+            OU seu dinheiro de volta <strong>sem perguntas</strong> até <br />7
             dias após a compra.
           </Typography>
         </TextWrapper>
