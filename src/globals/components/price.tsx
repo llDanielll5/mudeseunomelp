@@ -117,7 +117,7 @@ export default function Price() {
         </Typography>
 
         <Typography variant="headingLg" fontWeight="bold" color="#7c2e15">
-          12x R$ 8,08
+          12x R$ 10,03
         </Typography>
 
         <Typography variant="bodySm">ou 97,00 à vista</Typography>
