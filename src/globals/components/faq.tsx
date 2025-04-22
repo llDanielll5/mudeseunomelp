@@ -131,12 +131,12 @@ export default function FAQSection() {
             Confira as respostas para as perguntas frequentes ou entre em
             contato conosco:
           </Typography>
-          <WhatsAppButton
+          {/* <WhatsAppButton
             startIcon={<WhatsAppIcon />}
             href="https://wa.me/551181755598"
           >
             ATENDIMENTO POR WHATSAPP
-          </WhatsAppButton>
+          </WhatsAppButton> */}
         </LeftSide>
         <RightSide>
           {faqs.map((faq, index) => (

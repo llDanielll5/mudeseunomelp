@@ -63,9 +63,9 @@ export default function Price() {
           {[
             "Tenha finalmente um nome que te represente de verdade",
             "Não espere por ninguém e nem dependa de Advogado.",
-            "Remova traumas que seu nome lhe trouxe no passado.",
-            "Economize muito por ter o conhecimento certo para o que precisa",
-            "Exercite um direito legal seu Constitucional",
+            "Remova traumas causados por seu nome",
+            "Economize muito ao ganhar o conhecimento necessário",
+            "Exercite seu direito legal",
             "E muito mais...",
           ].map((item, index) => (
             <Box key={index} display="flex" alignItems={"center"} my={1.5}>
@@ -80,7 +80,7 @@ export default function Price() {
           backgroundColor: "white",
           borderRadius: 4,
           p: 3,
-          maxWidth: 380,
+          maxWidth: { md: 380, xs: "90%" },
           textAlign: "center",
           display: "flex",
           flexDirection: "column",
@@ -88,13 +88,7 @@ export default function Price() {
           mx: { xs: 2, md: 0 },
         }}
       >
-        <Image
-          src="/images/ebook.png"
-          alt="Mockup do ebook"
-          width={300}
-          height={100}
-          style={{ objectFit: "contain" }}
-        />
+        <StyledImage src="/images/ebook.png" alt="Mockup do ebook" />
 
         <Typography variant="headingSm" fontWeight="bold" mt={2}>
           Saiba como Mudar de Nome com Facilidade
@@ -151,3 +145,9 @@ export default function Price() {
     </Container>
   );
 }
+
+const StyledImage = styled("img")`
+  object-fit: contain;
+  max-width: 50%;
+  align-self: center;
+`;

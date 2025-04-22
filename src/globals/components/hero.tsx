@@ -66,8 +66,7 @@ export default function Header() {
 
             <Typography variant="headingMd" fontWeight={700} sx={{ mb: 2 }}>
               Neste eBook 100% prático, você vai aprender o passo a passo
-              completo para mudar seu nome de forma legal, segura e rápida,
-              direto no cartório ou por via judicial.
+              completo para mudar seu nome de forma legal, segura e rápida.
             </Typography>
 
             <br />
@@ -75,9 +74,9 @@ export default function Header() {
 
             <Typography variant="bodySm" sx={{ mb: 4 }}>
               Se você não se reconhece mais no nome que tem, se deseja corrigir
-              algo que te incomoda há anos ou até mesmo está em processo de
-              afirmação de gênero, religião ou identidade pessoal, esse guia é
-              para você.
+              algo que te incomoda há anos, se pretende incluir um sobrenome
+              familiar ou até mesmo está em processo de transição de gênero,
+              esse guia é para você.
             </Typography>
 
             <Box

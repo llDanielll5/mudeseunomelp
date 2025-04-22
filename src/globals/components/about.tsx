@@ -56,40 +56,8 @@ export default function Sobre() {
     <Box sx={{ bgcolor: "white", position: "relative", maxWidth: "100%" }}>
       <PatternBackground />
 
-      <Grid container spacing={4} alignItems="center" p={5}>
-        <Grid size={{ xs: 12, md: 6 }} sx={{ position: "relative", zIndex: 1 }}>
-          <Box
-            sx={{
-              position: "relative",
-              width: "100%",
-              maxWidth: "100%",
-              mx: "auto",
-            }}
-          >
-            <img
-              src="/images/hammer.png" // imagem do Matheus recortado com diamante
-              alt="LOGO GRUPO MMS"
-              style={{ borderRadius: 12, width: "100%" }}
-            />
-          </Box>
-        </Grid>
-
-        <Grid size={{ xs: 12, md: 5 }} sx={{ position: "relative", zIndex: 1 }}>
-          <Title>Sobre o Autor</Title>
-
-          <SobreTexto>
-            <b>O Grupo MMS</b> <br />
-            Comprometido com a capacitação da população brasileira e a promoção
-            do acesso à justiça, o Grupo MMS oferece serviços educacionais e
-            jurídicos de alta qualidade. <br /> <br /> Esta obra, elaborada por
-            profissionais com expertise na temática e rigorosamente atualizada
-            com a legislação nacional, visa difundir conhecimento essencial para
-            a efetiva busca por direitos.
-          </SobreTexto>
-        </Grid>
-      </Grid>
-
       <Stack
+        py={4}
         zIndex={1}
         width={{ md: "100%", xs: "100%" }}
         zIndex={1}
@@ -135,6 +103,50 @@ export default function Sobre() {
       />
       <Price />
       <GarantiaSection />
+
+      <Grid container spacing={4} alignItems="center" p={5} maxWidth={"100%"}>
+        <Grid
+          size={{ xs: 12, md: 6 }}
+          sx={{ position: "relative", zIndex: 1 }}
+          maxWidth={"100%"}
+        >
+          <Box
+            sx={{
+              position: "relative",
+              width: "100%",
+              maxWidth: "100%",
+              mx: "auto",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <StyledImage
+              src="/images/hammer.png" // imagem do Matheus recortado com diamante
+              alt="LOGO GRUPO MMS"
+            />
+          </Box>
+        </Grid>
+
+        <Grid size={{ xs: 12, md: 5 }} sx={{ position: "relative", zIndex: 1 }}>
+          <Title>Sobre o Autor</Title>
+
+          <SobreTexto>
+            <b>O Grupo MMS</b> <br />
+            Comprometido com a capacitação da população brasileira e a promoção
+            do acesso à justiça, o Grupo MMS oferece serviços educacionais e
+            jurídicos de alta qualidade. <br /> <br /> Esta obra, elaborada por
+            profissionais com expertise na temática e rigorosamente atualizada
+            com a legislação nacional, visa difundir conhecimento essencial para
+            a efetiva busca por direitos.
+          </SobreTexto>
+        </Grid>
+      </Grid>
     </Box>
   );
 }
+
+const StyledImage = styled("img")`
+  border-radius: "20px";
+  max-width: 70%;
+`;
