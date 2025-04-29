@@ -11,6 +11,7 @@ import {
 import { alpha, styled } from "@mui/material/styles";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import { PHONE_NUMBER } from "../utils/constants";
 
 const Section = styled("section")(({ theme }) => ({
   width: "100%",
@@ -131,12 +132,12 @@ export default function FAQSection() {
             Confira as respostas para as perguntas frequentes ou entre em
             contato conosco:
           </Typography>
-          {/* <WhatsAppButton
+          <WhatsAppButton
             startIcon={<WhatsAppIcon />}
-            href="https://wa.me/551181755598"
+            href={`https://wa.me/${PHONE_NUMBER}`}
           >
             ATENDIMENTO POR WHATSAPP
-          </WhatsAppButton> */}
+          </WhatsAppButton>
         </LeftSide>
         <RightSide>
           {faqs.map((faq, index) => (

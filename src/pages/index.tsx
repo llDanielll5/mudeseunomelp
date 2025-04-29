@@ -52,7 +52,7 @@ const Home = () => {
       <CountdownHeader />
       <About />
       <FAQ />
-      <Stack
+      {/* <Stack
         direction={"column"}
         alignItems={"center"}
         justifyContent={"center"}
@@ -114,7 +114,7 @@ const Home = () => {
             </Grid>
           )}
         </Formik>
-      </Stack>
+      </Stack> */}
       <Footer />
     </Box>
   );
