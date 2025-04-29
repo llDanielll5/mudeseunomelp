@@ -1,5 +1,5 @@
 import { Box, Button, Grid, Stack, Typography } from "@mui/material";
-import { Formik } from "formik";
+import { Form, Formik } from "formik";
 import Hero from "../globals/components/hero";
 import Footer from "../globals/components/footer";
 import About from "../globals/components/about";
@@ -33,6 +33,7 @@ const Home = () => {
   });
 
   const onSubmit = async (values: ContactFormInterface) => {
+    console.log("teste");
     try {
       const { data } = await axios.post("/api/send-email", values, {
         headers: { "Content-Type": "application/json" },
@@ -68,7 +69,13 @@ const Home = () => {
           enableReinitialize
         >
           {({ isSubmitting }) => (
-            <Grid container spacing={2} width={{ md: "60%", xs: "90%" }} p={2}>
+            <Grid
+              container
+              spacing={2}
+              width={{ md: "60%", xs: "90%" }}
+              p={2}
+              component={Form}
+            >
               <Grid size={{ xs: 12, md: 6 }}>
                 <CustomTextField
                   name="name"
