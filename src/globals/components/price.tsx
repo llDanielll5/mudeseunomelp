@@ -57,7 +57,7 @@ export default function Price() {
       >
         <Stack>
           <Typography variant="headingMd" fontWeight="bold" mb={1}>
-            Benefícios que nosso e-book lhe traz:
+            Benefícios proporcionados pelo e-book:
           </Typography>
 
           {[
